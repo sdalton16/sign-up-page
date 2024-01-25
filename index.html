@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up for a Fake Service!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="logoSection">
+        <div id="banner">
+            <img src="images/odin-lined.png">
+            <p id="bannerText">ODIN</p>
+        </div>
+        <p id="photoCredit">Photo by Halie West on <a href="https://unsplash.com/photos/green-leaf-plant-in-close-up-photography-25xggax4bSA">Upsplash</a></p>
+    </div>
+    <div id="uiSection">
+        <p>This is not a real online service! You know you need something like this in your life to help you realize your deepest dreams. Sign up <span style="font-style: italic;">now</span> to get started.</p>
+        <p>You <span style="font-style: italic;">know</span> you want to.</p>
+        <form>
+            <h2>Let's do this!</h2>
+            <div id="formInputs">
+                <div class="formRow">
+                    <div class="formCell">
+                        <label for="fName">FIRST NAME</label>
+                        <input type="text" id="fName" name="fName" required>
+                    </div>
+                    <div class="formCell">
+                        <label for="lName">FIRST NAME</label>
+                        <input type="text" id="lName" name="lName" required>
+                    </div>
+                </div>
+                <div class="formRow">
+                    <div class="formCell">
+                        <label for="email">EMAIL</label>
+                        <input type="email" name="email" id="email" required>
+                    </div>
+                    <div class="formCell">
+                        <label for="number">PHONE NUMBER</label>
+                        <input type="tel" name="number" id="number" pattern="^(\+\d{1,2}\s?)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$" required>
+                    </div>
+                </div>
+                <div class="formRow">
+                    <div class="formCell">
+                        <label for="pass">PASSWORD</label>
+                        <input type="password" name="pass" id="pass" required onkeyup="passCheck()" class="invalid">
+                        <span></span>
+                    </div>
+                    <div class="formCell">
+                        <label for="confirmPass">CONFIRM PASSWORD</label>
+                        <input type="password" name="confirmPass" id="confirmPass" required onkeyup="passCheck()" class="invalid">
+                    </div>
+                </div>
+            </div>
+        </form>
+        <button id="submitButton">Create Account</button>
+        <p>Already have an account? <a href="#">Log in</a></p>
+    </div>
+</body>
+<script>
+    const passCheck = function () {
+        let pass = document.querySelector('#pass');
+        let confirmPass = document.querySelector('#confirmPass');
+        
+        if (pass.value !== confirmPass.value) {
+            pass.classList.add('invalid');
+            confirmPass.classList.add('invalid');
+        } else if (pass.value === '') {
+            pass.classList.add('invalid');
+            confirmPass.classList.add('invalid');
+        } else {
+            pass.classList.remove('invalid');
+            confirmPass.classList.remove('invalid');
+        };
+    };
+</script>
+</html>
